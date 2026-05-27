@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-neon-green: #22ff66;
+  --color-neon-emerald: #00ff88;
+  --color-cyber-bg: #020703;
+  --color-cyber-card: #050b08;
+  --color-cyber-border: #0b3d1f;
+  --color-cyber-text: #a3b8cc;
+  --color-cyber-glow: rgba(34, 255, 102, 0.15);
+  
+  --font-cyber: "Outfit", "Inter", system-ui, sans-serif;
+  --font-mono: "Share Tech Mono", ui-monospace, monospace;
+}
+
+:root {
+  font-family: var(--font-cyber);
+  background-color: var(--color-cyber-bg);
+  color: #ffffff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #020703;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(11, 61, 31, 0.15) 0%, transparent 80%),
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 100%, 100% 4px, 6px 100%;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020703;
+}
+::-webkit-scrollbar-thumb {
+  background: #0b3d1f;
+  border-radius: 3px;
+  border: 1px solid rgba(34, 255, 102, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22ff66;
+  box-shadow: 0 0 8px #22ff66;
+}
+
+/* Glowing Neon Text */
+.text-neon-glow {
+  text-shadow: 0 0 5px rgba(34, 255, 102, 0.5), 0 0 10px rgba(34, 255, 102, 0.3);
+}
+
+.text-emerald-glow {
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.5), 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* Futuristic Scanline Effect */
+.scanline::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(34, 255, 102, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(34, 255, 102, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 255, 102, 0.03) 1px, transparent 1px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(5, 11, 8, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(34, 255, 102, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 12px rgba(34, 255, 102, 0.05);
+}
+
+.glass-panel-glow {
+  border: 1px solid rgba(34, 255, 102, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), 0 0 15px rgba(34, 255, 102, 0.1), inset 0 0 12px rgba(34, 255, 102, 0.05);
+}
+
+/* Animated cyber border */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(34, 255, 102, 0.15); }
+  50% { border-color: rgba(34, 255, 102, 0.6); }
+}
+
+.cyber-border-pulse {
+  animation: border-glow 4s infinite ease-in-out;
+}
+
+/* Custom glow utility */
+.glow-shadow-green {
+  box-shadow: 0 0 20px rgba(34, 255, 102, 0.15);
+}
+
+.glow-shadow-green-strong {
+  box-shadow: 0 0 30px rgba(34, 255, 102, 0.35);
+}
+
+/* Hologram Scanning Line Animation */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.hologram-scanner {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22ff66, transparent);
+  box-shadow: 0 0 8px #22ff66, 0 0 12px #22ff66;
+  animation: scan 3s infinite linear;
+}
+
+/* Radial tech layout */
+.tech-orbit {
+  border: 1px dashed rgba(34, 255, 102, 0.15);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
